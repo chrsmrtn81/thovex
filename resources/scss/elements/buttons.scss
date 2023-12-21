@@ -1,0 +1,28 @@
+@mixin btn($background-color, $text-color, $hover-background-color) {
+    background-color: $background-color;
+    color: $text-color;
+    border: 1px solid $background-color;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $hover-background-color;
+    }
+}
+
+.btn-primary {
+    @include btn(#007bff, #fff, #0056b3);
+}
+
+.btn-danger {
+    @include btn(#dc3545, #fff, #bd2130);
+}
