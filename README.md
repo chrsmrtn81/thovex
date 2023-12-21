@@ -11,8 +11,8 @@
 - Clone repo using `git clone https://github.com/chrsmrtn81/thovex.git`
 - Make a copy of the `.env.example` file and name `.env`
 - Create database and add database details to `.env`
-- Add Google Maps API key to `.env`
-- Run `composer install`
+- Add `GOOGLE_MAPS_API_KEY` to `.env`
+- Working in the project directory run `composer install`
 - Run `npm install`
 - Run `npm run dev`
 - Run `php artisan migrate`
