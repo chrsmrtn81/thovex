@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use Throwable;
-use App\Models\Point;
-use App\Jobs\Api\StorePointJob;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StorePointRequest;
+use App\Jobs\Api\StorePointJob;
+use App\Models\Api\Point;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class PointController extends Controller
 {

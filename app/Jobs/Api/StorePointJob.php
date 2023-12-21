@@ -2,17 +2,18 @@
 
 namespace App\Jobs\Api;
 
-use App\Models\Point;
+use App\Models\Api\Point;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class StorePointJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, SerializesModels;
 
     protected $latitude;
+
     protected $longitude;
 
     public function __construct($latitude, $longitude)
@@ -26,4 +27,3 @@ class StorePointJob implements ShouldQueue
         Point::createPoint($this->latitude, $this->longitude);
     }
 }
-
