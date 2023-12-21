@@ -21,7 +21,7 @@ class PointController extends Controller
         } catch (Throwable $t) {
             Log::error($t);
 
-            return response()->json();
+            return response()->json(['error' => 'Failed to load point coordinates.']);
         }
     }
 
