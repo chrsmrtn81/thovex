@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use Throwable;
+use App\Models\Point;
+use App\Jobs\Api\StorePointJob;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StorePointRequest;
-use App\Models\Point;
-use Illuminate\Support\Facades\Log;
-use Throwable;
 
 class PointController extends Controller
 {
@@ -30,14 +31,14 @@ class PointController extends Controller
             $latitude = $request->input('latitude');
             $longitude = $request->input('longitude');
 
-            $point = Point::createPoint($latitude, $longitude);
+            StorePointJob::dispatch($latitude, $longitude);
 
-            return response()->json($point);
+            return response()->json(['message' => 'Point coordinates will be stored asynchronously.']);
 
         } catch (Throwable $t) {
             Log::error($t);
 
-            return response()->json();
+            return response()->json(['error' => 'Failed to store point coordinates.']);
         }
     }
 }
