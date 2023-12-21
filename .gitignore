@@ -6,6 +6,7 @@
 /public/css
 /public/img
 /public/js
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 .env
@@ -20,5 +21,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-.mix-manifest.json
+
 
